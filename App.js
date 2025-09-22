@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 import QRCode from "react-native-qrcode-svg";
-import { Login } from './screens/Login';
+import { Login } from "./components/Login";
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>

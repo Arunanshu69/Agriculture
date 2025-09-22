@@ -7,7 +7,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Login />
-      <Text style={{ fontSize: 20, marginBottom: 10 }}>Customer QR Portal</Text>
+      <Text style={{ fontSize: 20, marginBottom: 10, marginTop: 20 }}>Customer QR Portal</Text>
       <Text>Scan this to get info on Cooperative ID, Crop</Text><Text style={{alignContent: 'center',marginBottom: 20}}>Type and GPS coordinates</Text>
       <QRCode
         value="https://yourwebsite.com"   
@@ -21,9 +21,14 @@ export default function App() {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexGrow: 1,             // ensures it expands and scrolls
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+    backgroundColor: "#fff",
+  },
+  inner: {
+    width: "100%",           // keeps content aligned
+    alignItems: "center",
   },
 });

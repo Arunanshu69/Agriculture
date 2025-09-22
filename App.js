@@ -1,13 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 import QRCode from "react-native-qrcode-svg";
-
+import { Login } from './screens/Login';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hello</Text>
-      <Text style={{ fontSize: 20, marginBottom: 20 }}>Scan QR Code</Text>
+      <Login />
+      <Text style={{ fontSize: 20, marginBottom: 10 }}>Customer QR Portal</Text>
+      <Text>Scan this to get info on Cooperative ID, Crop</Text><Text style={{alignContent: 'center',marginBottom: 20}}>Type and GPS coordinates</Text>
       <QRCode
         value="https://yourwebsite.com"   
         size={200}                        

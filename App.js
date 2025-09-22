@@ -1,13 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import QRCode from "react-native-qrcode-svg";
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text>Hello</Text>
+      <Text style={{ fontSize: 20, marginBottom: 20 }}>Scan QR Code</Text>
+      <QRCode
+        value="https://yourwebsite.com"   
+        size={200}                        
+        color="black"                     
+        backgroundColor="white"           
+      />
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({

@@ -51,9 +51,9 @@ try {
 # 1️⃣ Add Herb
 # -----------------------------
 $addHerbBody = @{
-    name = "Mint"
-    farmer = "Alice"
-    location = "Farm A"
+    name = "Blue Spider Lily"
+    farmer = "Muzan Kibutsuji"
+    location = "Kyoto, Japan"
 } | ConvertTo-Json
 
 Write-Host "Adding herb..."
@@ -151,7 +151,7 @@ try {
 # -----------------------------
 Write-Host "`nUpdating herb via PUT /updateHerb/{id}..."
 try {
-    $updateBody = @{ name = "Mint (Updated)"; location = "Farm Z" } | ConvertTo-Json
+    $updateBody = @{ name = "Blue Spider Lily (Updated)"; location = "Kyoto, Japan" } | ConvertTo-Json
     $updateResp = Invoke-RestMethod -Uri "$baseUrl/updateHerb/$herbId" -Method Put -Body $updateBody -ContentType "application/json"
     Write-Host "Updated name:" $updateResp.name "| location:" $updateResp.location
 

@@ -10,11 +10,19 @@ use handlers::*;
 use couchdb::CouchDb;
 use tower_http::cors::{CorsLayer, Any};
 use http::Method;
+use std::env;
 
 #[tokio::main]
 async fn main() {
-    let couch = CouchDb::new("http://127.0.0.1:5984", "admin", "d**4");
-    let db_name = "herbs".to_string();
+    // Load .env if present
+    let _ = dotenvy::dotenv();
+
+    let couch_url = env::var("COUCHDB_URL").unwrap_or_else(|_| "http://127.0.0.1:5984".to_string());
+    let couch_user = env::var("COUCHDB_USER").unwrap_or_else(|_| "admin".to_string());
+    let couch_pass = env::var("COUCHDB_PASS").unwrap_or_else(|_| "d**4".to_string());
+    let db_name = env::var("COUCHDB_DB").unwrap_or_else(|_| "herbs".to_string());
+
+    let couch = CouchDb::new(&couch_url, &couch_user, &couch_pass);
 
     let state = handlers::AppState { couch: couch.clone(), db_name: db_name.clone() };
 
@@ -40,7 +48,10 @@ async fn main() {
         .with_state(state)
         .layer(cors);
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    let port: u16 = env::var("PORT").ok().and_then(|s| s.parse().ok()).unwrap_or(3000);
+    let host = env::var("HOST").unwrap_or_else(|_| "127.0.0.1".to_string());
+    let ip: std::net::IpAddr = host.parse().unwrap_or(std::net::IpAddr::V4(std::net::Ipv4Addr::new(127,0,0,1)));
+    let addr = SocketAddr::from((ip, port));
     println!("🚀 Server running at http://{}", addr);
 
     axum::serve(tokio::net::TcpListener::bind(addr).await.unwrap(), app)

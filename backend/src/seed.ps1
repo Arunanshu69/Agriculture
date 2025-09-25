@@ -24,14 +24,18 @@ function Save-QR {
 }
 
 $samples = @(
-    # Global demo
-    @{ name = "Mint";         farmer = "Alice";         location = "Farm A" },
-    @{ name = "Basil";        farmer = "Bob";           location = "Farm B" },
-    @{ name = "Tulsi";        farmer = "Ravi";          location = "Farm C" },
-    @{ name = "Rosemary";     farmer = "Maya";          location = "Farm D" },
-    @{ name = "Thyme";        farmer = "Noah";          location = "Farm E" },
+    # Demon Slayer Specific
+    @{ name = "Blue Spider Lily";    farmer = "Muzan Kibutsuji"; location = "Kyoto, Japan" },
+    @{ name = "Golden Chrysanthemum";    farmer = "Tanjiro Kamado"; location = "Mount Kumotori, Japan" },
+    @{ name = "Red Spider Lily"; farmer = "Mitsuri Kanroji"; location = "Ufotable Garden, Japan" },
+    @{ name = "Red Spider Lily"; farmer = "Kanao Tsuyuri"; location = "Butterfly Mansion, Japan" },
+    @{ name = "White Camellia"; farmer = "Shinobu Kocho"; location = "Butterfly Mansion, Japan" },
+    @{ name = "White Camellia"; farmer = "Giyu Tomioka"; location = "Hisuikyo River, Japan" },
+    @{ name = "Silver Orchid"; farmer = "Kyojuro Rengoku"; location = "Rengoku Estate, Japan" },
+    @{ name = "Silver Orchid"; farmer = "Zenitsu Agatsuma"; location = "Mount Natagumo, Japan" },
+    @{ name = "Scarlet Dahlia"; farmer = "Inosuke Hashibira"; location = "Boar Forest, Japan" },
 
-    # India (Odisha) specific
+    # India (Odisha) Specific
     @{ name = "Tulsi";        farmer = "Sukanta";       location = "Bhubaneswar, Khordha, Odisha" },
     @{ name = "Neem";         farmer = "Priyanka";      location = "Cuttack, Odisha" },
     @{ name = "Coriander";    farmer = "Bikash";        location = "Puri, Odisha" },
